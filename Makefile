@@ -12,17 +12,17 @@ publish: build
 	docker push 221039308519.dkr.ecr.us-east-1.amazonaws.com/my-first-ecr-repo:latest
 
 plan:
-	cd terraform; tfswitch
-	cd terraform; terraform init -input=false
-	cd terraform; terraform plan -input=false -no-color -compact-warnings -out plan.tfplan
+	cd terraform/stacks; tfswitch
+	cd terraform/stacks; terraform init -input=false
+	cd terraform/stacks; terraform plan -input=false -no-color -compact-warnings -out plan.tfplan
 
 apply:
-	cd terraform; tfswitch
-	cd terraform; terraform init -input=false
-	cd terraform; terraform apply -input=false -no-color -compact-warnings -auto-approve
+	cd terraform/stacks; tfswitch
+	cd terraform/stacks; terraform init -input=false
+	cd terraform/stacks; terraform apply -input=false -no-color -compact-warnings -auto-approve
 
 destroy:
-	cd terraform; tfswitch
-	cd terraform; terraform init -input=false
-	cd terraform; terraform destroy -input=false -no-color -compact-warnings
+	cd terraform/stacks; tfswitch
+	cd terraform/stacks; terraform init -input=false
+	cd terraform/stacks; terraform destroy -input=false -no-color -compact-warnings
 
