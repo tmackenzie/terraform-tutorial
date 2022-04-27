@@ -14,6 +14,15 @@ terraform {
     }
 }
 
+data "terraform_remote_state" "shared" {
+  backend = "s3"
+  config = {
+        bucket = "maclayzie"
+        key    = "terraform/tutorial-shared"
+        region = "us-east-1"
+  }
+}
+
 provider "aws" {
     region  = "us-east-1"
     alias   = "main"
@@ -44,10 +53,6 @@ resource "aws_default_subnet" "default_subnet_c" {
   availability_zone = "us-east-1c"
 }
 
-resource "aws_ecr_repository" "my_first_ecr_repo" {
-  name = "my-first-ecr-repo"
-}
-
 resource "aws_ecs_cluster" "my_cluster" {
   name = "my-cluster" # Naming the cluster
 }
@@ -59,7 +64,7 @@ resource "aws_ecs_task_definition" "my_first_task" {
   [
     {
       "name": "my-first-task",
-      "image": "${aws_ecr_repository.my_first_ecr_repo.repository_url}",
+      "image": "${data.terraform_remote_state.shared.outputs.aws_ecr_repository_url}",
       "essential": true,
       "portMappings": [
         {
