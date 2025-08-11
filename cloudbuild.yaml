@@ -1,0 +1,24 @@
+steps:
+  - id: 'terraform init'
+    name: 'hashicorp/terraform:latest'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform init
+
+  - id: 'terraform plan'
+    name: 'hashicorp/terraform:latest'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform plan -out=tfplan
+
+  - id: 'terraform apply'
+    name: 'hashicorp/terraform:latest'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform apply --auto-approve tfplan
