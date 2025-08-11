@@ -1,0 +1,14 @@
+title: "devOpsAdmim"
+description: "Administrator for dev ops"
+stage: GA
+includedPermissions:
+- iam.serviceAccounts.getAccessToken
+- storage.buckets.create
+- storage.buckets.delete
+- storage.buckets.get
+- storage.buckets.list
+- storage.objects.get
+- storage.objects.create
+- storage.objects.list
+- storage.objects.delete
+- storage.objects.update
