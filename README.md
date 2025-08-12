@@ -1,6 +1,11 @@
-# Terraform for a Hugo Project
+# Terraform for GCP Certs
 
-This follows the [small project](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform) code structure recommended by [terraform best practices]((https://www.terraform-best-practices.com/examples)).
+This project uses terraform to help study for the certs:
+- [Professional Cloud DevOps Engineer Cert](https://cloud.google.com/learn/certification/cloud-devops-engineer/)
+
+## Project layout
+
+This follows the [small project](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform) code structure recommended by [terraform best practices](https://www.terraform-best-practices.com/examples).
 
 ## Click Ops
 
